@@ -67,8 +67,8 @@ console.log(boundary("50"));
 const epify = function (userString) {
   let epiString = "EPICODE";
   let newString;
-  newString = userString.padStart(11, epiString);
-
+  //   newString = userString.padStart(11, epiString);
+  newString = epiString.concat(" ", userString);
   return newString;
 };
 console.log(epify("ciao"));
@@ -88,7 +88,7 @@ function check3and7(numPos) {
       console.log("non è un multiplo di 3 o 7");
     }
   } else {
-    console.log("Inserisci un numero positivo");
+    alert("Inserisci un numero positivo");
   }
   // switch (numPos) {
   //   case numPos % 3 === 0:
@@ -100,7 +100,7 @@ function check3and7(numPos) {
   // }
 }
 
-check3and7(21);
+check3and7(10);
 
 /* ESERCIZIO 7
  Scrivi una funzione di nome "reverseString", il cui scopo è invertire una stringa fornita come parametro (es. "EPICODE" --> "EDOCIPE")
@@ -149,12 +149,12 @@ console.log(cutString("ciao a tutti"));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
-function giveMeRandom(n = 10) {
+function giveMeRandom(n) {
   const arrayRandom = [];
-  for (let i = 0; i < 20; i++) {
-    const randomNum = Math.floor(Math.random() * (n + 1));
+  for (let i = 0; i < n; i++) {
+    const randomNum = Math.floor(Math.random() * 11);
     arrayRandom.push(randomNum);
   }
   return arrayRandom;
 }
-console.log(giveMeRandom(15));
+console.log(giveMeRandom(45));
