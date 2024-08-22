@@ -65,13 +65,13 @@ console.log(boundary("50"));
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 const epify = function (userString) {
-  let epiString = "EPICODE";
-  let newString;
-  //   newString = userString.padStart(11, epiString);
-  newString = epiString.concat(" ", userString);
-  return newString;
+  if (userString.toUpperCase().startsWith("EPICODE")) {
+    return userString;
+  } else {
+    return "EPICODE " + userString;
+  }
 };
-console.log(epify("ciao"));
+console.log(epify("epicode prova frase"));
 
 /* ESERCIZIO 6
  Scrivi una funzione di nome "check3and7" che accetta un numero positivo come parametro. La funzione deve controllare che il parametro sia un multiplo
@@ -123,12 +123,19 @@ console.log(reverseString("ciao"));
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 function upperFirst(userStr) {
-  //   let firstLetter = userStr.match(/\b\w/g);
-  let arrayProvv = userStr.split("");
-
-  return arrayProvv;
+  let arrayStr = userStr.split(" "); // con lo spazio nello split lìarray si riempie di parole e non caratteri.
+  let completeSentence = ""; //dichiaro la variabile che mi servirà alla fine del loop
+  for (let i = 0; i < arrayStr.length; i++) {
+    // ciclo l'array di caratteri
+    let singleWord = arrayStr[i]; // dichiaro una variabile dove salvare le singole parole
+    let fisrLetter = singleWord.charAt(0).toUpperCase(); //dichiaro una variabile dove salvo la prima lettera della singola parola (charAt(0)) e la rendo maiuscola (toUpperCase)
+    let remainigLetter = singleWord.slice(1); // creo una variabile dove salvo il resto delle singole parole escludendo la prima lettera
+    let completeWord = fisrLetter + remainigLetter; // concateno in una nuova variabile le due stringhe ottenute sopra (lettera grande + il resto)
+    completeSentence += completeWord + " "; // concateno le singole parole in una stringa comprendendo gli spazi
+  }
+  return completeSentence;
 }
-console.log(upperFirst("ciao a tutti"));
+console.log(upperFirst("mo funziona, no prima"));
 
 /* ESERCIZIO 9
  Scrivi una funzione di nome "cutString", che riceve come parametro una stringa. La funzione deve creare una nuova stringa senza il primo e l'ultimo carattere
@@ -141,7 +148,7 @@ const cutString = function (userStr) {
   userStr = userStr.substring(1, userStr.length - 1);
   return userStr;
 };
-console.log(cutString("ciao a tutti"));
+console.log(cutString("prova prima e ultima"));
 
 /* ESERCIZIO 10
  Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna un'array contenente n numeri casuali inclusi tra 0 e 10.
