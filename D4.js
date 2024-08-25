@@ -83,24 +83,24 @@ console.log(epify("epicode prova frase"));
 function check3and7(numPos) {
   if (numPos > 0) {
     if (numPos % 3 === 0 || numPos % 7 === 0) {
-      console.log("complimenti hai trovato un multiplo di 3 o 7");
-    } else if (numPos % 3 !== 0 || numPos % 7 !== 0) {
-      console.log("non è un multiplo di 3 o 7");
+      //   console.log("complimenti hai trovato un multiplo di 3 o 7");
+      // } else if (numPos % 3 !== 0 || numPos % 7 !== 0) {
+      //   console.log("non è un multiplo di 3 o 7");
+    }
+    switch (numPos) {
+      case numPos % 3 === 0:
+        console.log("complimenti hai trovato un multiplo di 3");
+        break;
+      case numPos % 7 === 0:
+        console.log("complimenti hai trovato un multiplo di 7");
+        break;
     }
   } else {
     alert("Inserisci un numero positivo");
   }
-  // switch (numPos) {
-  //   case numPos % 3 === 0:
-  //     console.log("complimenti hai trovato un multiplo di 3");
-  //     break;
-  //   case numPos % 7 === 0:
-  //     console.log("complimenti hai trovato un multiplo di 7");
-  //     break;
-  // }
 }
 
-check3and7(10);
+check3and7(21);
 
 /* ESERCIZIO 7
  Scrivi una funzione di nome "reverseString", il cui scopo è invertire una stringa fornita come parametro (es. "EPICODE" --> "EDOCIPE")
